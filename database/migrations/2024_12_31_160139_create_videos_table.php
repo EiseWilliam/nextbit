@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('videos', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users');
             $table->string('title');
             $table->text('description')->nullable();
             $table->string('path');
             $table->string('thumbnail_path')->nullable();
             $table->json('formats')->nullable();
             $table->enum('status', ['pending', 'processing', 'completed', 'failed'])->default('pending');
-            $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });
     }
