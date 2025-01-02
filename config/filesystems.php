@@ -45,6 +45,14 @@ return [
             'throw' => false,
         ],
 
+        'streamable_videos' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/streamable_videos'),
+            'url' => env('APP_URL').'/storage/streamable_videos',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
